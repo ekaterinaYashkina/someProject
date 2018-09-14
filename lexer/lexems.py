@@ -1,1 +1,45 @@
+from enum import Enum
+
+
+class Lexem(Enum):
+    IDENTIFIER = "\\b([a-zA-Z]{1}[0-9a-zA-Z_]{0,31})\\b.*"
+    STRING_LITERAL = '\"(\\.|[^\\"])*\"'
+    CHARACTER_LITERAL = r"\'(\\.|[^\\'])*\'"
+
+    PLUS = "(\\+{1}).*"
+    MINUS = "(\\-{1}).*"
+    MULTIPLY = "(\\*).*"
+    DIVIDE = "(/).*"
+    STRUCTURAL_EQUAL = "(==).*"
+    REFERENTIAL_EQUAL = "(===).*"
+    ASSIGNMENT = "(=).*"
+    NOT_EQUAL = "(\\!=).*"
+    CLOSE_CARET = "(>).*"
+    OPEN_CARET = "(<).*"
+    LESS_EQUAL = "(<=).*"
+    BIG_EQUAL = "(>=).*"
+    MODULO = "(%).*"
+    INCREMENT = "(\\+{2}).*"
+    DECREMENT = "(\\-{2}).*"
+    AUGMENTED_ASSIGNMENT = "((\\+|\\-|\\*|/){1}(=){1}).*"
+    LOGICAL_AND = "(\\|{2}).*"
+    LOGICAL_OR = "(\\&{2}).*"
+    LOGICAL_NOT = "(\\!{1}).*"
+    ASSERT_NON_NULL = "(\\!{2}).*"
+
+    OPEN_BRACE = "(\\[).*"
+    CLOSE_BRACE = "(\\]).*"
+    POINT = "(\\.{1}).*"
+    RANGE = "(\\.{2}).*"
+    SAFE_CALL = "(\\?\\.).*"
+    ELVIS = "(\\?:).*"
+    NULLABLE = "(\\?).*"
+    REFERENCE = "(:{2}).*"
+    DECLARATION_SEPARATOR = "(\\:{1}).*"
+    ARROW_SEPARATOR = "(\\->).*"
+    REFERENCE = "(\\@).*"
+    SUBSTITUTE = "(\\_).*"
+    SEMICOLON = "(;).*"
+    COMMA = "(,).*"
+    TEMPLATE = "$"
 
