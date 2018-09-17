@@ -87,6 +87,10 @@ class Lexem(Enum):
         TAILREC = "\\b(tailrec)\\b.*"
         VARARG = "\\b(vararg)\\b.*"
 
+
+
+
+
 #Special symbols:
     BLOCK_COMMENT = "(/\\*.*?\\*/).*"
     LINE_COMMENT = "(//(.*?)[\r$]?\n).*"
@@ -94,9 +98,15 @@ class Lexem(Enum):
 
 #Identifier
     IDENTIFIER = "\\b([a-zA-Z]{1}[0-9a-zA-Z_]{0,31})\\b.*"
-
+    DOUBLE_NUMBER = "\\b(\\d+\\.{0,1}\\d*[eE][0-9]+)\\b.*"
+    DECIMAL_NUMBER = "\\b(\\d+|(\\d+\\_\\d+))+\\b.*"
+    DECIMAL_LONG = "\\b(\\d{1,9}|(\\d\\_\\d))+L\\b.*"
+    HEXADECIMALS = "\\b(0[xX][0-9a-fA-F]+|0[xX]([0-9a-fA-F]+\\_[0-9a-fA-F]+)+)\\b.*"
+    BINARY = "\\b(0b[01]+|0b([01]+\\_[01]+)+)\\b.*"
+    FLOAT ="\\b(\\d+\\.{0,1}\\d*[eE][0-9]+)[fF]\\b.*"
 #Literals
-    STRING_LITERAL = '\"(\\.|[^\\"])*\"'
+    STRING_LITERAL_TEMPLATE = '\"([$]{1}(\\.|[^\\"])*)*\"'
+    STRING_LITERAL = '\"((?!$)\\.|[^(?!$)\\"])*\"'
     CHARACTER_LITERAL = r"\'(\\.|[^\\'])*\'"
 
 #Operators
@@ -124,7 +134,6 @@ class Lexem(Enum):
     CLOSE_BRACE = "(\\]).*"
     RANGE = "(\\.{2}).*"
     SUBSTITUTE = "(\\_).*"
-    TEMPLATE = "$"
 
 #Delimeters (calls):
     OUTER_REFERENCE = "(\\@).*"
